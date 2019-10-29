@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="freshfood.css">
+	
+</head>
+<body>
+	<div class="grid-container">
+		<div class="header">
+			<ul>
+				<li>
+					Phone: <span style="color: blue;">0359405417</span>
+				</li>
+				<li>
+					Email: nguyetnguyen@gmail.com
+				</li>
+			</ul>
+		</div>
+		<div class="top">
+			<img class="logo" src="logo.png">
+			<input class="form" type="" name="" placeholder="search">
+			<button onclick="displayCart()">Giỏ hàng</button>
+		</div>
+		<div class="bar">
+			<ul style="margin-left: 350px;"> 
+				<li><a href="">Trang chủ</a></li>
+				<li><a  onclick="displayProduct()" href="">Thực phẩm</a></li>
+				<li><a href="">Giới thiệu</a></li>
+				<li><a href="">Liên hệ</a></li>
+				<li><a href="">Tin tức</a></li>
+			</ul>
+		</div>
+		<div class="menu">
+			<div class="border-menu">
+                <div style="background-color:#80BB35; border-radius: 5px; padding: 10px; color: white;">
+                	<b>
+                        DANH MỤC SẢN PHẨM
+                    </b>
+                </div>
+                <ul style="list-style-type: none;">
+                	<li class="style-border"><a href="">RAU, CỦ SẠCH</a></li>
+                    <li class="style-border"><a href="">RAU, CỦ NHẬP KHẨU</a></li>
+                    <li class="style-border"><a href="">TRÁI CÂY TƯƠI</li></a>          
+                    <li class="style-border"><a href="">HOA QUẢ NHẬP KHẨU</a></li>
+                    <li class="style-border"><a href="">THỰC PHẨM TƯƠI</a></li>
+                    <li class="style-border"><a href="">THỰC PHẨM CHẾ BIẾN SẴN</a></li>
+                    <li style="padding: 9px;"><a href="">THỰC PHẨM SẠCH</a></li>
+                </ul>
+            </div>
+		</div>
+		<div class="main">
+			<img src="main.png">
+		</div>
+		<div class="products">
+			<div id="container"></div>
+			<div id="containerCart"></div>
+			<div>
+				<p><button onclick="sumPrice()">Thanh toán</button></p>
+				<p id="beforeTax"></p>
+				<p id="tax"></p>
+				<p id="afterTax"></p>
+			</div>
+		</div>
+		<div class="bottom">
+			<!-- <div class="border-bottom">
+				<a href=""><img class="border"  src="raucu.png"></a>
+				<a href=""><img class="border" src="thucpham.png"></a>
+				<a href=""><img class="border" src="traicay.png"></a>
+			</div> -->
+			
+		</div>
+	</div>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
