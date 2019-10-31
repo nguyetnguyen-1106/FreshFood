@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="freshfood.css">
 	
 </head>
-<body>
+<body >
 	<div class="grid-container">
 		<div class="header">
 			<ul>
@@ -18,14 +18,15 @@
 			</ul>
 		</div>
 		<div class="top">
-			<img class="logo" src="logo.png">
-			<input class="form" type="" name="" placeholder="search">
+			<img class="logo" src="image/logo.png">
+			<input id="sea" class="form" type="" name="" placeholder="search">
+			<button onclick="search()">Search</button>
 			<button onclick="displayCart()">Giỏ hàng</button>
 		</div>
 		<div class="bar">
 			<ul style="margin-left: 350px;"> 
 				<li><a href="">Trang chủ</a></li>
-				<li><a  onclick="displayProduct()" href="">Thực phẩm</a></li>
+				<li><a href="">Thực phẩm</a></li>
 				<li><a href="">Giới thiệu</a></li>
 				<li><a href="">Liên hệ</a></li>
 				<li><a href="">Tin tức</a></li>
@@ -39,37 +40,34 @@
                     </b>
                 </div>
                 <ul style="list-style-type: none;">
-                	<li class="style-border"><a href="">RAU, CỦ SẠCH</a></li>
-                    <li class="style-border"><a href="">RAU, CỦ NHẬP KHẨU</a></li>
-                    <li class="style-border"><a href="">TRÁI CÂY TƯƠI</li></a>          
-                    <li class="style-border"><a href="">HOA QUẢ NHẬP KHẨU</a></li>
-                    <li class="style-border"><a href="">THỰC PHẨM TƯƠI</a></li>
-                    <li class="style-border"><a href="">THỰC PHẨM CHẾ BIẾN SẴN</a></li>
-                    <li style="padding: 9px;"><a href="">THỰC PHẨM SẠCH</a></li>
+                	<li onclick="list_Vegetable();"  class="style-border"><a href="#">RAU, CỦ SẠCH</a></li>
+                    <li class="style-border"><a href="#">RAU, CỦ NHẬP KHẨU</a></li>
+                    <li class="style-border"><a href="#">TRÁI CÂY TƯƠI</li></a>          
+                    <li onclick="list_Fruits();" class="style-border"><a href="#">HOA QUẢ NHẬP KHẨU</a></li>
+                    <li onclick="list_Foods();" class="style-border"><a href="#">THỰC PHẨM TƯƠI</a></li>
+                    <li class="style-border"><a href="#">THỰC PHẨM CHẾ BIẾN SẴN</a></li>
+                    <li style="padding: 9px;"><a href="#">THỰC PHẨM SẠCH</a></li>
                 </ul>
             </div>
 		</div>
 		<div class="main">
-			<img src="main.png">
+			<img src="image/main.png">
 		</div>
 		<div class="products">
 			<div id="container"></div>
+			<div id="fruit"></div>
+			<div id="vegetable"></div>
+			<div id="food"></div>
 			<div id="containerCart"></div>
-			<div>
-				<p><button onclick="sumPrice()">Thanh toán</button></p>
-				<p id="beforeTax"></p>
-				<p id="tax"></p>
-				<p id="afterTax"></p>
+		</div>
+	<!-- 	<div class="bottom">
+			<div class="border-bottom">
+				<a href=""><img onclick="list_Vegetable()" class="border"  src="image/raucu.png"></a>
+				<a href=""><img class="border" src="image/thucpham.png"></a>
+				<a href=""><img class="border" src="image/traicay.png"></a>
 			</div>
-		</div>
-		<div class="bottom">
-			<!-- <div class="border-bottom">
-				<a href=""><img class="border"  src="raucu.png"></a>
-				<a href=""><img class="border" src="thucpham.png"></a>
-				<a href=""><img class="border" src="traicay.png"></a>
-			</div> -->
 			
-		</div>
+		</div> -->
 	</div>
 	<script type="text/javascript" src="index.js"></script>
 </body>

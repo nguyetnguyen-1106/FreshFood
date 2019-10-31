@@ -53,6 +53,7 @@
 	font-size: 25px;
 	font-weight: bold;
 	padding: 20px;
+	text-decoration: none;
 }
 .bar li:hover{
 	background-color: lightblue;
@@ -62,7 +63,7 @@
 	height: 180px;
 }
 .form{
-	height: 50px;
+	height: 35px;
 	width: 400px;
 }
 button{
@@ -103,11 +104,37 @@ button{
 	display: grid;
 	grid-template-columns: auto auto auto auto;	
 }
-#containerCart{
+#fruit{
 	display: grid;
-	grid-template-columns: auto auto auto auto;
+	grid-template-columns: auto auto auto auto;	
+}
+#vegetable{
+	display: grid;
+	grid-template-columns: auto auto auto auto;	
+}
+#food{
+	display: grid;
+	grid-template-columns: auto auto auto auto;	
 }
 .image{
 	width: 250px;
 	height: 300px;
+}
+.line{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 800px;
+	margin-left: 20px;
+}
+.column{
+	display: grid;
+	grid-template-columns: 250px 250px 250px 250px;	
+}
+.border-Pro{
+	border: 1px solid #dcdcdc;
+	margin-left: 30px;
+	margin-top: 25px;
+	justify-content: center;
+	align-items: center;
 }
