@@ -19,17 +19,19 @@
 		</div>
 		<div class="top">
 			<img class="logo" src="image/logo.png">
-			<input id="sea" class="form" type="" name="" placeholder="search">
-			<button onclick="search()">Search</button>
+			<div>
+				<input id="sea" class="form" type="" name="" placeholder="search">
+				<button onclick="search()">Search</button>
+			</div>
 			<button onclick="displayCart()">Giỏ hàng</button>
 		</div>
 		<div class="bar">
 			<ul style="margin-left: 350px;"> 
-				<li><a href="">Trang chủ</a></li>
-				<li><a href="">Thực phẩm</a></li>
-				<li><a href="">Giới thiệu</a></li>
-				<li><a href="">Liên hệ</a></li>
-				<li><a href="">Tin tức</a></li>
+				<li onclick="displayProduct()"><a href="">Trang chủ</a></li>
+				<li onclick="displayProduct()"><a href="">Thực phẩm</a></li>
+				<li><a href="#">Giới thiệu</a></li>
+				<li><a href="#">Liên hệ</a></li>
+				<li><a href="#">Tin tức</a></li>
 			</ul>
 		</div>
 		<div class="menu">
@@ -41,12 +43,9 @@
                 </div>
                 <ul style="list-style-type: none;">
                 	<li onclick="list_Vegetable();"  class="style-border"><a href="#">RAU, CỦ SẠCH</a></li>
-                    <li class="style-border"><a href="#">RAU, CỦ NHẬP KHẨU</a></li>
-                    <li class="style-border"><a href="#">TRÁI CÂY TƯƠI</li></a>          
                     <li onclick="list_Fruits();" class="style-border"><a href="#">HOA QUẢ NHẬP KHẨU</a></li>
                     <li onclick="list_Foods();" class="style-border"><a href="#">THỰC PHẨM TƯƠI</a></li>
-                    <li class="style-border"><a href="#">THỰC PHẨM CHẾ BIẾN SẴN</a></li>
-                    <li style="padding: 9px;"><a href="#">THỰC PHẨM SẠCH</a></li>
+                    <li onclick="list_Convenience();" style="padding: 9px;"><a href="#">THỰC PHẨM CHẾ BIẾN SẴN</a></li>
                 </ul>
             </div>
 		</div>
@@ -58,6 +57,7 @@
 			<div id="fruit"></div>
 			<div id="vegetable"></div>
 			<div id="food"></div>
+			<div id="convenience"></div>
 			<div id="containerCart"></div>
 		</div>
 	<!-- 	<div class="bottom">

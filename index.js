@@ -60,17 +60,38 @@ var food4 = {
 	name: "Sò",
 	price: "350000"
 }
-var products = [vegetable1,vegetable2,vegetable3,vegetable4,fuit1,fuit2,fuit3,fuit4,food1,food2,food3,food4];
+var convenience1 = {
+	image: "image/xucxich.png",
+	name: "Xúc xích",
+	price: "220000"
+}
+var convenience2 = {
+	image: "image/chaca.png",
+	name: "Chả cá",
+	price: "200000"
+}
+var convenience3 = {
+	image: "image/nem.png",
+	name: "Nem",
+	price: "100000"
+}
+var convenience4 = {
+	image: "image/chagio.png",
+	name: "Chả giò",
+	price: "350000"
+}
+var products = [vegetable1,vegetable2,vegetable3,vegetable4,fuit1,fuit2,fuit3,fuit4,food1,food2,food3,food4,convenience1,convenience2,convenience3,convenience4];
 var fruits = [fuit1,fuit2,fuit3,fuit4];
 var vegetables = [vegetable1,vegetable2,vegetable3,vegetable4];
 var foods = [food1,food2,food3,food4];
+var conveniences = [convenience1,convenience2,convenience3,convenience4]
 displayProduct();
 var cart = [];
 function list_Vegetable(){
 	document.getElementById("vegetable").innerHTML = "";
 	var vegetable = document.getElementById('vegetable');
 	for (var i = 0; i < vegetables.length; i++) {
-			var line = document.createElement("div");
+		var line = document.createElement("div");
 		var prName = document.createElement("p");
 			prName.innerText = vegetables[i].name;
 		var prPrice = document.createElement("p");
@@ -116,6 +137,7 @@ function list_Vegetable(){
 	document.getElementById("food").style.display = "none";
 	document.getElementById("container").style.display = "none";
 	document.getElementById("containerCart").style.display = "none";
+	document.getElementById("convenience").style.display = "none";
 }
 function list_Fruits(){
 	document.getElementById("fruit").innerHTML = "";
@@ -165,6 +187,7 @@ function list_Fruits(){
 	document.getElementById("fruit").style.display = "grid";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("food").style.display = "none";
+	document.getElementById("convenience").style.display = "none";
 	document.getElementById("container").style.display = "none";
 	document.getElementById("containerCart").style.display = "none";
 }
@@ -217,9 +240,63 @@ function list_Foods(){
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("food").style.display = "grid";
+	document.getElementById("convenience").style.display = "none";
 	document.getElementById("container").style.display = "none";
 	document.getElementById("containerCart").style.display = "none";
 
+}
+
+function list_Convenience(){
+	document.getElementById("convenience").innerHTML = "";
+	var convenience = document.getElementById('convenience');
+	for (var i = 0; i < conveniences.length; i++) {
+			var line = document.createElement("div");
+		var prName = document.createElement("p");
+			prName.innerText = conveniences[i].name;
+		var prPrice = document.createElement("p");
+			prPrice.innerText = "Giá: "+ conveniences[i].price +"/kg";
+		var prImage = document.createElement("img");
+			prImage.src= conveniences[i].image;
+			prImage.className = "image";
+		var btAdd = document.createElement("button");
+			btAdd.innerText = "Đặt mua";
+			btAdd.onclick = function(arg){
+				return function(){
+					var iName = conveniences[arg].name;
+					var exist = -1;
+					for (var j = 0; j < cart.length; j++) {
+						if(cart[j].name == iName){
+							exist = j;
+						}
+					}
+						if(exist != -1){
+							cart[exist].quantity += 1;
+						}
+						else {
+							cart.push({
+								name: conveniences[arg].name,
+								image: conveniences[arg].image,
+								price: conveniences[arg].price,
+								quantity: 1
+							})
+						}
+					document.getElementById("containerCart").innerHTML = "";
+				}
+			}(i);
+			line.appendChild(prImage);
+			line.appendChild(prName);
+			line.appendChild(prPrice);
+			line.appendChild(btAdd);
+			convenience.appendChild(line);
+			convenience.className = "line";
+			line.className = "border-Pro";
+	}		
+	document.getElementById("fruit").style.display = "none";
+	document.getElementById("vegetable").style.display = "none";
+	document.getElementById("convenience").style.display = "grid";
+	document.getElementById("food").style.display = "none";
+	document.getElementById("container").style.display = "none";
+	document.getElementById("containerCart").style.display = "none";
 }
 function displayProduct(){
 	var container = document.getElementById('container');
@@ -318,6 +395,8 @@ function displayCart(){
 	document.getElementById("container").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
+	document.getElementById("food").style.display = "none";
+	document.getElementById("convenience").style.display = "none";
 	document.getElementById("containerCart").style.display = "grid";
 }
 function Info_Cus(){
@@ -411,12 +490,12 @@ function Info_Cus(){
 var research = []
 function search(){
 	var a = document.getElementById("sea").value;
+	document.getElementById("container").innerHTML = "";
 	for (var i = 0; i < products.length; i++) {
 		if(a == products[i].name){
-			products.push(products[i]);
+			document.getElementById('container').innerHTML = products[i].name;
+			displayProduct();
 		}
-	document.getElementById("container").innerHTML = "";
-	displayProduct();
 
 	}
 }
