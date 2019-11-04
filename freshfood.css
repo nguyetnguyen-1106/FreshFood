@@ -148,6 +148,10 @@ button:hover{
 	display: grid;
 	grid-template-columns: auto auto auto auto;	
 }
+#contact{
+	display: grid;
+	grid-template-columns: auto auto auto auto;	
+}
 .image{
 	width: 250px;
 	height: 250px;
@@ -156,8 +160,8 @@ button:hover{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 800px;
-	margin-left: 20px;
+	width: 900px;
+	margin-left: 40px;
 }
 .column{
 	display: grid;
@@ -169,4 +173,14 @@ button:hover{
 	margin-top: 25px;
 	justify-content: center;
 	align-items: center;
+}
+.styles{
+	margin-left: 80px;
+}
+.border-info{
+	border: 0px;
+	margin-left: 450px;
+	margin-top: 25px;
+
+
 }

@@ -87,12 +87,13 @@ var foods = [food1,food2,food3,food4];
 var conveniences = [convenience1,convenience2,convenience3,convenience4]
 displayProduct();
 var cart = [];
+var find = [];
 function list_Vegetable(){
 	document.getElementById("vegetable").innerHTML = "";
 	var vegetable = document.getElementById('vegetable');
 	for (var i = 0; i < vegetables.length; i++) {
 		var line = document.createElement("div");
-		var prName = document.createElement("p");
+		var prName = document.createElement("b");
 			prName.innerText = vegetables[i].name;
 		var prPrice = document.createElement("p");
 			prPrice.innerText = "Giá: "+ vegetables[i].price +"/kg";
@@ -110,18 +111,18 @@ function list_Vegetable(){
 							exist = j;
 						}
 					}
-						if(exist != -1){
-							cart[exist].quantity += 1;
-						}
-						else {
-							cart.push({
-								name: vegetables[arg].name,
-								image: vegetables[arg].image,
-								price: vegetables[arg].price,
-								quantity: 1
-							})
-						}
-					document.getElementById("containerCart").innerHTML = "";
+					if(exist != -1){
+						cart[exist].quantity += 1;
+					}
+					else {
+						cart.push({
+							name: vegetables[arg].name,
+							image: vegetables[arg].image,
+							price: vegetables[arg].price,
+							quantity: 1
+						})
+					}
+				document.getElementById("containerCart").innerHTML = "";
 				}
 			}(i);
 		line.appendChild(prImage);
@@ -144,7 +145,7 @@ function list_Fruits(){
 	var fruit = document.getElementById('fruit');
 	for (var i = 0; i < fruits.length; i++) {
 			var line = document.createElement("div");
-		var prName = document.createElement("p");
+		var prName = document.createElement("b");
 			prName.innerText = fruits[i].name;
 		var prPrice = document.createElement("p");
 			prPrice.innerText = "Giá: "+ fruits[i].price +"/kg";
@@ -162,18 +163,18 @@ function list_Fruits(){
 							exist = j;
 						}
 					}
-						if(exist != -1){
-							cart[exist].quantity += 1;
-						}
-						else {
-							cart.push({
-								name: fruits[arg].name,
-								image: fruits[arg].image,
-								price: fruits[arg].price,
-								quantity: 1
-							})
-						}
-					document.getElementById("containerCart").innerHTML = "";
+					if(exist != -1){
+						cart[exist].quantity += 1;
+					}
+					else {
+						cart.push({
+							name: fruits[arg].name,
+							image: fruits[arg].image,
+							price: fruits[arg].price,
+							quantity: 1
+						})
+					}
+				document.getElementById("containerCart").innerHTML = "";
 				}
 			}(i);
 		line.appendChild(prImage);
@@ -196,7 +197,7 @@ function list_Foods(){
 	var food = document.getElementById('food');
 	for (var i = 0; i < foods.length; i++) {
 		var line = document.createElement("div");
-		var prName = document.createElement("p");
+		var prName = document.createElement("b");
 			prName.innerText = foods[i].name;
 		var prPrice = document.createElement("p");
 			prPrice.innerText = "Giá: "+ foods[i].price + "/kg";
@@ -214,18 +215,18 @@ function list_Foods(){
 							exist = j;
 						}
 					}
-						if(exist != -1){
-							cart[exist].quantity += 1;
-						}
-						else {
-							cart.push({
-								name: foods[arg].name,
-								image: foods[arg].image,
-								price: foods[arg].price,
-								quantity: 1
-							})
-						}
-					document.getElementById("containerCart").innerHTML = "";
+					if(exist != -1){
+						cart[exist].quantity += 1;
+					}
+					else {
+						cart.push({
+							name: foods[arg].name,
+							image: foods[arg].image,
+							price: foods[arg].price,
+							quantity: 1
+						})
+					}
+				document.getElementById("containerCart").innerHTML = "";
 				}
 			}(i);
 		line.appendChild(prImage);
@@ -248,7 +249,7 @@ function list_Convenience(){
 	var convenience = document.getElementById('convenience');
 	for (var i = 0; i < conveniences.length; i++) {
 			var line = document.createElement("div");
-		var prName = document.createElement("p");
+		var prName = document.createElement("b");
 			prName.innerText = conveniences[i].name;
 		var prPrice = document.createElement("p");
 			prPrice.innerText = "Giá: "+ conveniences[i].price +"/kg";
@@ -266,18 +267,18 @@ function list_Convenience(){
 							exist = j;
 						}
 					}
-						if(exist != -1){
-							cart[exist].quantity += 1;
-						}
-						else {
-							cart.push({
-								name: conveniences[arg].name,
-								image: conveniences[arg].image,
-								price: conveniences[arg].price,
-								quantity: 1
-							})
-						}
-					document.getElementById("containerCart").innerHTML = "";
+					if(exist != -1){
+						cart[exist].quantity += 1;
+					}
+					else {
+						cart.push({
+							name: conveniences[arg].name,
+							image: conveniences[arg].image,
+							price: conveniences[arg].price,
+							quantity: 1
+						})
+					}
+				document.getElementById("containerCart").innerHTML = "";
 				}
 			}(i);
 		line.appendChild(prImage);
@@ -299,15 +300,19 @@ function displayProduct(){
 	var container = document.getElementById('container');
 	for (var i = 0; i < products.length; i++) {
 		var line = document.createElement("div");
-		var prName = document.createElement("p");
+		var prName = document.createElement("b");
 			prName.innerText = products[i].name;
+			prName.className = "styles";
 		var prPrice = document.createElement("p");
 			prPrice.innerText = "Giá: "+ products[i].price + "/kg";
+			prPrice.className = "styles";
 		var prImage = document.createElement("img");
 			prImage.src= products[i].image;
 			prImage.className = "image";
+			prName.className = "styles";
 		var btAdd = document.createElement("button");
 			btAdd.innerText = "Đặt mua";
+			btAdd.className = "styles";
 			btAdd.onclick = function(arg){
 				return function(){
 					var iName = products[arg].name;
@@ -317,18 +322,18 @@ function displayProduct(){
 							exist = j;
 						}
 					}
-						if(exist != -1){
-							cart[exist].quantity += 1;
-						}
-						else {
-							cart.push({
-								name: products[arg].name,
-								image: products[arg].image,
-								price: products[arg].price,
-								quantity: 1
-							})
-						}
-					document.getElementById("containerCart").innerHTML = "";
+					if(exist != -1){
+						cart[exist].quantity += 1;
+					}
+					else {
+						cart.push({
+							name: products[arg].name,
+							image: products[arg].image,
+							price: products[arg].price,
+							quantity: 1
+						})
+					}
+				document.getElementById("containerCart").innerHTML = "";
 				}
 			}(i);
 		line.appendChild(prImage);
@@ -339,8 +344,6 @@ function displayProduct(){
 		container.className = "line";
 		line.className = "border-Pro";
 	}
-	document.getElementById("fruit").style.display = "none";
-	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("container").style.display = "grid";
 	document.getElementById("containerCart").style.display = "none";
 }
@@ -350,7 +353,7 @@ function displayCart(){
 		for (var i = 0; i < cart.length;  i++) {
 			var line = document.createElement("div");
 
-			var prName = document.createElement("p");
+			var prName = document.createElement("b");
 				prName.innerText = cart[i].name;
 
 			var prPrice = document.createElement("p");
@@ -372,26 +375,26 @@ function displayCart(){
 						displayCart();
 					}
 				}(i);
-			var btOrder = document.createElement("button");
-				btOrder.innerText = "Mua hàng";
-				btOrder.onclick = function(a){
-					return function(){
-						Info_Cus();
-					}
-				}(i)
 		line.appendChild(prImage);
 		line.appendChild(prName);
 		line.appendChild(prPrice);
 		line.appendChild(quantity);
 		line.appendChild(btDelete);
-		line.appendChild(btOrder);
-		containerCart.appendChild(line);
 		line.className = "line";
-	}
+		containerCart.appendChild(line);
+	}	
+		var btbuy = document.createElement("button");
+		btbuy.innerText = "Mua hàng";
+		containerCart.appendChild(btbuy);
+		btbuy.className = "border-info";
+		btbuy.onclick = function(){
+				Info_Cus();
+		};
 	document.getElementById("container").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("food").style.display = "none";
+	document.getElementById("convenience").style.display = "none";
 	document.getElementById("convenience").style.display = "none";
 	document.getElementById("containerCart").style.display = "grid";
 }
@@ -420,33 +423,6 @@ function Info_Cus(){
 	var inputEmail = document.createElement("input");
 		inputEmail.innerText = " ";
 		inputEmail.className = "form";
-	var line2 = document.createElement("div");
-	var pay = document.createElement("button");
-		pay.innerText = "Thanh toán"
-		pay.onclick = function(){
-			if(inputName.value == "" || inputAddress.value == "" || inputEmail.value == "" || inputPhone.value == ""){
-				alert("Mời bạn nhập đầy đủ thông tin");
-			}
-			else{
-				alert("Bạn đã đặt hàng thành công");
-			}
-		}
-	var product = document.createElement("h1");
-		product.innerText = "Xem lại đơn hàng";
-	for (var i = 0; i < cart.length;  i++) {
-		var line1 = document.createElement("div");
-		var prName = document.createElement("h2");
-			prName.innerText = cart[i].name;
-		var prPrice = document.createElement("h2");
-			prPrice.innerText = "Giá: " + cart[i].price;
-		var quantity = document.createElement("h2");
-			quantity.innerText = "Số lượng: " + cart[i].quantity;
-		var prImage = document.createElement("img");
-			prImage.src= cart[i].image;
-			prImage.className = "image";
-		var totalPrice = document.createElement("h2");
-			totalPrice.innerText += "Tổng: " + (cart[i].price * cart[i].quantity);
-	}
 	line.appendChild(customer);
 	line.appendChild(name);
 	line.appendChild(inputName);
@@ -456,29 +432,189 @@ function Info_Cus(){
 	line.appendChild(inputPhone);
 	line.appendChild(email);
 	line.appendChild(inputEmail);
-	line1.appendChild(product);
-	line1.appendChild(prImage);
-	line1.appendChild(prName);
-	line1.appendChild(prPrice);
-	line1.appendChild(quantity);
-	line1.appendChild(totalPrice);
-	line2.appendChild(pay)
 	containerCart.appendChild(line);
-	containerCart.appendChild(line1);
+	
+	var product = document.createElement("h1");
+		product.innerText = "Xem lại đơn hàng";
+		containerCart.appendChild(product);
+	for (var i = 0; i < cart.length;  i++) {
+			var line1 = document.createElement("div");
+
+			var prName = document.createElement("b");
+				prName.innerText = cart[i].name;
+
+			var prPrice = document.createElement("p");
+				prPrice.innerText = cart[i].price;
+
+			var quantity = document.createElement("p");
+				quantity.innerText = "Số lượng: " + cart[i].quantity;
+
+			var prImage = document.createElement("img");
+				prImage.src= cart[i].image;
+				prImage.className = "image";
+			var total = document.createElement("p");
+				total.innerText = "Tổng: " + cart[i].price*cart[i].quantity;
+		line1.appendChild(prImage);
+		line1.appendChild(prName);
+		line1.appendChild(prPrice);
+		line1.appendChild(quantity);
+		line1.appendChild(total);
+		line1.className = "line";
+		containerCart.appendChild(line1);
+		line1.className = "line";
+	}
+	var line2 = document.createElement("div");
+	var pay = document.createElement("button");
+		pay.innerText = "Thanh toán";
+		pay.className = "border-info";
+		pay.onclick = function(){
+			if(inputName.value == "" || inputAddress.value == "" || inputEmail.value == "" || inputPhone.value == ""){
+				alert("Mời bạn nhập đầy đủ thông tin");
+			}
+			else{
+				alert("Bạn đã đặt hàng thành công");
+				order();
+			}
+		}
+	line2.appendChild(pay);
 	containerCart.appendChild(line2);
-	containerCart.className = "line";
-	inputName.className = "form";
+		containerCart.className = "line";
 	document.getElementById("containerCart").style.display = "grid";
 }
-var research = []
 function search(){
-	var a = document.getElementById("sea").value;
 	document.getElementById("container").innerHTML = "";
+	var a = document.getElementById("sea").value;
 	for (var i = 0; i < products.length; i++) {
 		if(a == products[i].name){
-			document.getElementById('container').innerHTML = products[i].name;
-			displayProduct();
+			var line = document.createElement("div");
+			var prName = document.createElement("p");
+				prName.innerText = products[i].name;
+			var prPrice = document.createElement("p");
+				prPrice.innerText = "Giá: "+ products[i].price + "/kg";
+			var prImage = document.createElement("img");
+				prImage.src= products[i].image;
+				prImage.className = "image";
+			var btAdd = document.createElement("button");
+				btAdd.innerText = "Đặt mua";
+				btAdd.onclick = function(arg){
+					return function(){
+						var iName = products[arg].name;
+						var exist = -1;
+						for (var j = 0; j < cart.length; j++) {
+							if(cart[j].name == iName){
+								exist = j;
+							}
+						}
+							if(exist != -1){
+								cart[exist].quantity += 1;
+						}
+							else {
+								cart.push({
+									name: products[arg].name,
+									image: products[arg].image,
+									price: products[arg].price,
+									quantity: 1
+								})
+							}
+					document.getElementById("containerCart").innerHTML = "";
+				}
+			}(i);
+		line.appendChild(prImage);
+		line.appendChild(prName);
+		line.appendChild(prPrice);
+		line.appendChild(btAdd);
+		container.appendChild(line);
+		container.className = "line";
+		line.className = "border-Pro";
 		}
-
-	}
+	document.getElementById("convenience").style.display = "grid";
+	document.getElementById("food").style.display = "grid";
+	document.getElementById("fruit").style.display = "grid";
+	document.getElementById("vegetable").style.display = "grid";
+	document.getElementById("container").style.display = "grid";
+	document.getElementById("containerCart").style.display = "none";
+	}	
 }
+function order(){
+	document.createElement("containerCart").innerHTML = "";
+	for (var i = 0; i < cart.length;  i++) {
+			var line1 = document.createElement("div");
+
+			var prName = document.createElement("b");
+				prName.innerText = cart[i].name;
+
+			var prPrice = document.createElement("p");
+				prPrice.innerText = cart[i].price;
+
+			var quantity = document.createElement("p");
+				quantity.innerText = "Số lượng: " + cart[i].quantity;
+
+			var prImage = document.createElement("img");
+				prImage.src= cart[i].image;
+				prImage.className = "image";
+			var total = document.createElement("p");
+				total.innerText = "Tổng: " + cart[i].price*cart[i].quantity;
+			var cancel = document.createElement("button");
+				cancel.innerText = "Hủy đơn";
+				cancel.onclick = function(ar){
+					return function(){
+					alert("Bạn đã hủy hàng thành công.");
+					cart.splice(ar,1);
+				}
+			}(i);
+		line1.appendChild(prImage);
+		line1.appendChild(prName);
+		line1.appendChild(prPrice);
+		line1.appendChild(quantity);
+		line1.appendChild(total);
+		line1.appendChild(cancel);
+		line1.className = "line";
+		containerCart.appendChild(line1);
+		line1.className = "line";
+	}
+
+}
+function contact(){
+	document.getElementById("contact").innerHTML = "";
+	var contact = document.getElementById("contact");
+	var line1 = document.createElement("div");
+	var title1 = document.createElement("h1");
+	var phone = document.createElement("h2");
+	var email = document.createElement("h2");
+	var address = document.createElement("h2");
+		title1.innerText = "LIÊN HỆ"
+		phone.innerText = "Điện thoại: 0359405417";
+		email.innerText = "Email: nguyetnguyen@gmail.com";
+		address.innerText = "Địa chỉ: 101B Lê Hữu Trác, An Hải Đông, Sơn Trà, ĐN";
+	
+		line1.appendChild(title1)
+		line1.appendChild(address);
+		line1.appendChild(phone);
+		line1.appendChild(email);
+
+	var line2 = document.createElement("div");
+	var	title2 = document.createElement("h1");
+	var main = document.createElement("li");
+	var product = document.createElement("li");
+	var contacts = document.createElement("li");
+		title2.innerText = "THÔNG TIN";
+		main.innerText = "Trang chủ";
+		product.innerText = "Sản phẩm";
+		contacts.innerText = "Liên hệ";
+		
+		line2.appendChild(title2);
+		line2.appendChild(main);
+		line2.appendChild(product);
+		line2.appendChild(contacts);
+		contact.appendChild(line1);
+		contact.appendChild(line2);
+		contact.className = "line";
+	document.getElementById("convenience").style.display = "none";
+	document.getElementById("food").style.display = "none";
+	document.getElementById("fruit").style.display = "none";
+	document.getElementById("vegetable").style.display = "none";
+	document.getElementById("container").style.display = "none";
+	document.getElementById("contact").style.display = "grid";
+	document.getElementById("containerCart").style.display = "none";
+	}
+
