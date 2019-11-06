@@ -133,6 +133,7 @@ function list_Vegetable(){
 		vegetable.className = "line";
 		line.className = "border-Pro";
 	}		
+	document.getElementById("sum").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("vegetable").style.display = "grid";
 	document.getElementById("food").style.display = "none";
@@ -184,7 +185,8 @@ function list_Fruits(){
 		fruit.appendChild(line);
 		fruit.className = "line";
 		line.className = "border-Pro";
-	}		
+	}	
+	document.getElementById("sum").style.display = "none";	
 	document.getElementById("fruit").style.display = "grid";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("food").style.display = "none";
@@ -237,6 +239,7 @@ function list_Foods(){
 		food.className = "line";
 		line.className = "border-Pro";
 	}		
+	document.getElementById("sum").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("food").style.display = "grid";
@@ -288,7 +291,8 @@ function list_Convenience(){
 		convenience.appendChild(line);
 		convenience.className = "line";
 		line.className = "border-Pro";
-	}		
+	}	
+	document.getElementById("sum").style.display = "none";	
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("convenience").style.display = "grid";
@@ -407,7 +411,6 @@ function displayCart(){
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("food").style.display = "none";
-	document.getElementById("convenience").style.display = "none";
 	document.getElementById("convenience").style.display = "none";
 	document.getElementById("sum").style.display = "grid";
 	document.getElementById("containerCart").style.display = "grid";
@@ -558,6 +561,7 @@ function search(){
 		container.className = "line";
 		line.className = "border-Pro";
 		}
+	document.getElementById("sum").style.display = "none";
 	document.getElementById("convenience").style.display = "grid";
 	document.getElementById("food").style.display = "grid";
 	document.getElementById("fruit").style.display = "grid";
