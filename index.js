@@ -133,6 +133,7 @@ function list_Vegetable(){
 		vegetable.className = "line";
 		line.className = "border-Pro";
 	}		
+	document.getElementById("contact").style.display = "none";
 	document.getElementById("sum").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("vegetable").style.display = "grid";
@@ -185,7 +186,8 @@ function list_Fruits(){
 		fruit.appendChild(line);
 		fruit.className = "line";
 		line.className = "border-Pro";
-	}	
+	}
+	document.getElementById("contact").style.display = "none";
 	document.getElementById("sum").style.display = "none";	
 	document.getElementById("fruit").style.display = "grid";
 	document.getElementById("vegetable").style.display = "none";
@@ -239,6 +241,7 @@ function list_Foods(){
 		food.className = "line";
 		line.className = "border-Pro";
 	}		
+	document.getElementById("contact").style.display = "none";
 	document.getElementById("sum").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
@@ -292,6 +295,7 @@ function list_Convenience(){
 		convenience.className = "line";
 		line.className = "border-Pro";
 	}	
+	document.getElementById("contact").style.display = "none";
 	document.getElementById("sum").style.display = "none";	
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
@@ -348,6 +352,7 @@ function displayProduct(){
 		container.className = "line";
 		line.className = "border-Pro";
 	}
+	document.getElementById("contact").style.display = "none";
 	document.getElementById("sum").style.display = "none";
 	document.getElementById("container").style.display = "grid";
 	document.getElementById("containerCart").style.display = "none";
@@ -407,6 +412,7 @@ function displayCart(){
 			};
 		containerCart.appendChild(line1);
 		containerCart.appendChild(line2);
+	document.getElementById("contact").style.display = "none";
 	document.getElementById("container").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
@@ -423,7 +429,7 @@ function Info_Cus(){
 	var name = document.createElement("p");
 		name.innerText = "Họ và tên";
 	var inputName = document.createElement("input");
-		inputName.innerText = " ";
+		inputName.innerText = "";
 		inputName.className = "form";
 	var address = document.createElement("p");
 		address.innerText = "Địa chỉ";
@@ -508,6 +514,7 @@ function Info_Cus(){
 				document.getElementById("containerCart").style.display = "none";
 				document.getElementById("sum").style.display = "none";
 				cart.splice(0,cart.length);
+				displayProduct();
 			}
 		}
 	line3.appendChild(pay);
@@ -561,6 +568,7 @@ function search(){
 		container.className = "line";
 		line.className = "border-Pro";
 		}
+	document.getElementById("contact").style.display = "none";
 	document.getElementById("sum").style.display = "none";
 	document.getElementById("convenience").style.display = "grid";
 	document.getElementById("food").style.display = "grid";
@@ -614,6 +622,7 @@ function contact(){
 		contact.className = "line";
 	document.getElementById("convenience").style.display = "none";
 	document.getElementById("food").style.display = "none";
+	document.getElementById("sum").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("container").style.display = "none";
