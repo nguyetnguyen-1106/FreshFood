@@ -344,6 +344,7 @@ function displayProduct(){
 		container.className = "line";
 		line.className = "border-Pro";
 	}
+	document.getElementById("sum").style.display = "none";
 	document.getElementById("container").style.display = "grid";
 	document.getElementById("containerCart").style.display = "none";
 }
@@ -383,26 +384,39 @@ function displayCart(){
 		line.className = "line";
 		containerCart.appendChild(line);
 	}	
+		var line1 = document.createElement("div");
+		var btSum = document.createElement("button");
+			btSum.innerText = "Tổng";
+			line1.appendChild(btSum);
+			sumPrice();
+			btSum.className = "border-info";
+			btSum.onclick = function(){
+				sumPrice();
+			};
+		var line2 = document.createElement("div");
 		var btbuy = document.createElement("button");
-		btbuy.innerText = "Mua hàng";
-		containerCart.appendChild(btbuy);
-		btbuy.className = "border-info";
-		btbuy.onclick = function(){
+			btbuy.innerText = "Mua hàng";
+			line2.appendChild(btbuy);
+			btbuy.className = "border-info";
+			btbuy.onclick = function(){
 				Info_Cus();
-		};
+			};
+		containerCart.appendChild(line1);
+		containerCart.appendChild(line2);
 	document.getElementById("container").style.display = "none";
 	document.getElementById("vegetable").style.display = "none";
 	document.getElementById("fruit").style.display = "none";
 	document.getElementById("food").style.display = "none";
 	document.getElementById("convenience").style.display = "none";
 	document.getElementById("convenience").style.display = "none";
+	document.getElementById("sum").style.display = "grid";
 	document.getElementById("containerCart").style.display = "grid";
 }
 function Info_Cus(){
 	document.getElementById('containerCart').innerHTML = "";
 	var line = document.createElement("div");
 	var customer = document.createElement("h1");
-	customer.innerText = "Thông tin khách hàng";
+	customer.innerText = "THÔNG TIN KHÁCH HÀNG";
 	var name = document.createElement("p");
 		name.innerText = "Họ và tên";
 	var inputName = document.createElement("input");
@@ -433,10 +447,11 @@ function Info_Cus(){
 	line.appendChild(email);
 	line.appendChild(inputEmail);
 	containerCart.appendChild(line);
-	
+	line.className = "border-info";
 	var product = document.createElement("h1");
-		product.innerText = "Xem lại đơn hàng";
+		product.innerText = "XEM LẠI ĐƠN HÀNG";
 		containerCart.appendChild(product);
+		product.className = "border-info";
 	for (var i = 0; i < cart.length;  i++) {
 			var line1 = document.createElement("div");
 
@@ -453,7 +468,7 @@ function Info_Cus(){
 				prImage.src= cart[i].image;
 				prImage.className = "image";
 			var total = document.createElement("p");
-				total.innerText = "Tổng: " + cart[i].price*cart[i].quantity;
+				total.innerText = "Thành tiền: " + cart[i].price*cart[i].quantity + " VNĐ";
 		line1.appendChild(prImage);
 		line1.appendChild(prName);
 		line1.appendChild(prPrice);
@@ -464,6 +479,16 @@ function Info_Cus(){
 		line1.className = "line";
 	}
 	var line2 = document.createElement("div");
+		var btSum = document.createElement("button");
+			btSum.innerText = "Tổng";
+			line2.appendChild(btSum);
+			sumPrice();
+			btSum.className = "border-info";
+			btSum.onclick = function(){
+				sumPrice();
+			};
+		containerCart.appendChild(line2);
+	var line3 = document.createElement("div");
 	var pay = document.createElement("button");
 		pay.innerText = "Thanh toán";
 		pay.className = "border-info";
@@ -471,14 +496,20 @@ function Info_Cus(){
 			if(inputName.value == "" || inputAddress.value == "" || inputEmail.value == "" || inputPhone.value == ""){
 				alert("Mời bạn nhập đầy đủ thông tin");
 			}
+			else if(cart.length == 0){
+				alert("Mời bạn chọn sản phẩm để thanh toán");
+				displayProduct();
+			}
 			else{
 				alert("Bạn đã đặt hàng thành công");
-				order();
+				document.getElementById("containerCart").style.display = "none";
+				document.getElementById("sum").style.display = "none";
+				cart.splice(0,cart.length);
 			}
 		}
-	line2.appendChild(pay);
-	containerCart.appendChild(line2);
-		containerCart.className = "line";
+	line3.appendChild(pay);
+	containerCart.appendChild(line3);
+	containerCart.className = "line";
 	document.getElementById("containerCart").style.display = "grid";
 }
 function search(){
@@ -535,44 +566,12 @@ function search(){
 	document.getElementById("containerCart").style.display = "none";
 	}	
 }
-function order(){
-	document.createElement("containerCart").innerHTML = "";
-	for (var i = 0; i < cart.length;  i++) {
-			var line1 = document.createElement("div");
-
-			var prName = document.createElement("b");
-				prName.innerText = cart[i].name;
-
-			var prPrice = document.createElement("p");
-				prPrice.innerText = cart[i].price;
-
-			var quantity = document.createElement("p");
-				quantity.innerText = "Số lượng: " + cart[i].quantity;
-
-			var prImage = document.createElement("img");
-				prImage.src= cart[i].image;
-				prImage.className = "image";
-			var total = document.createElement("p");
-				total.innerText = "Tổng: " + cart[i].price*cart[i].quantity;
-			var cancel = document.createElement("button");
-				cancel.innerText = "Hủy đơn";
-				cancel.onclick = function(ar){
-					return function(){
-					alert("Bạn đã hủy hàng thành công.");
-					cart.splice(ar,1);
-				}
-			}(i);
-		line1.appendChild(prImage);
-		line1.appendChild(prName);
-		line1.appendChild(prPrice);
-		line1.appendChild(quantity);
-		line1.appendChild(total);
-		line1.appendChild(cancel);
-		line1.className = "line";
-		containerCart.appendChild(line1);
-		line1.className = "line";
+function sumPrice(){
+	var sumPrice = 0;
+	for (var i = 0; i < cart.length; i++) {
+		sumPrice += parseInt(cart[i].price) * cart[i].quantity ;
 	}
-
+	document.getElementById("sum").innerHTML = sumPrice  + " VNĐ";
 }
 function contact(){
 	document.getElementById("contact").innerHTML = "";
@@ -616,5 +615,4 @@ function contact(){
 	document.getElementById("container").style.display = "none";
 	document.getElementById("contact").style.display = "grid";
 	document.getElementById("containerCart").style.display = "none";
-	}
-
+}
